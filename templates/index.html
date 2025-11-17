@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block titulo %}Buscar Ingredientes{% endblock %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Buscar Información de Ingredientes</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('buscar') }}">
+                        <div class="mb-3">
+                            <label for="ingrediente" class="form-label">Ingrediente:</label>
+                            <input type="text" class="form-control" autocomplete='off' id="ingrediente" name="ingrediente" 
+                                   placeholder="Ej: manzana, pollo, arroz" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Buscar Ingrediente</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

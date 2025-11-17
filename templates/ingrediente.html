@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block titulo %}{{ ingrediente.nombre }}{% endblock %}
+
+{% block contenido %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>{{ ingrediente.nombre }}</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    {% if ingrediente.imagen %}
+                    <img src="{{ ingrediente.imagen }}" alt="{{ ingrediente.nombre }}" class="img-fluid">
+                    {% endif %}
+                </div>
+                <div class="col-md-8">
+                    <p><strong>Categoría:</strong> {{ ingrediente.categoria }}</p>
+                    
+                    <h5>Información Nutricional (por 100g):</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Calorías: {{ ingrediente.nutricion.calorias }}</li>
+                        <li class="list-group-item">Proteína: {{ ingrediente.nutricion.proteina }}g</li>
+                        <li class="list-group-item">Carbohidratos: {{ ingrediente.nutricion.carbohidratos }}g</li>
+                        <li class="list-group-item">Grasas: {{ ingrediente.nutricion.grasas }}g</li>
+                    </ul>
+                    
+                    <div class="mt-3">
+                        <a href="{{ url_for('index') }}" class="btn btn-secondary">Buscar otro ingrediente</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
