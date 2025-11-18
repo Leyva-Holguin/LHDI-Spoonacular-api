@@ -38,7 +38,6 @@ def buscar():
                     ingrediente_info = {
                         'nombre': info_data['name'].title(),
                         'imagen': f"https://spoonacular.com/cdn/ingredients_250x250/{info_data['image']}",
-                        'categoria': info_data.get('category', 'No especificado').title()
                     }    
                     nutrientes = info_data.get('nutrition', {}).get('nutrients', [])
                     ingrediente_info['nutricion'] = {
